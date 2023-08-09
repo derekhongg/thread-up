@@ -1,0 +1,9 @@
+// this will easily let us import different files with "@"
+
+{
+    "compilerOptions": {
+        "paths": {
+            "@/*": ["./src/*"]
+        }
+    }
+}

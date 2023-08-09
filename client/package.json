@@ -39,6 +39,7 @@
     ]
   },
   "devDependencies": {
+    "@types/node": "^20.4.9",
     "eslint": "^8.46.0",
     "eslint-config-react-app": "^7.0.1"
   }
