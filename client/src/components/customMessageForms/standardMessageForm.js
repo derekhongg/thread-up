@@ -8,7 +8,9 @@ const standardMessageForm = () => {
     const [attachment, setAttachment] = useState("");
     const [preview, setPreview] = useState("");
 
-    return
+    const handleChange = (e) => setMessage(e.target.value);
+    
+    return (
     <div className = "message-form-container">
         {preview && (
             <div>
@@ -28,7 +30,19 @@ const standardMessageForm = () => {
                 />
             </div>
         )}
+        <div>message form
+            <div className="message-form-input-container">
+                <input
+                    className="message-form-input"
+                    type="text"
+                    value={message}
+                    onChange={handleChange}
+                    placeholder="Send a topic for Thread"
+                />
+            </div>
+        </div>
     </div>
+    )
 }
 
 export default standardMessageForm;
