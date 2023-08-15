@@ -23,8 +23,8 @@
     "react-router-dom": "^6.14.2"
   },
   "keywords": [],
-  "description": "",
   "devDependencies": {
     "nodemon": "^3.0.1"
-  }
+  },
+  "description": ""
 }
