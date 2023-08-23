@@ -1,8 +1,8 @@
 import React from "react";
 import { useMultiChatLogic, MultiChatSocket, MultiChatWindow } from "react-chat-engine-advanced";
 import Header from '@/components/customHeader';
-import standardMessageForm from "@/components/customMessageForms/standardMessageForm"
-// import Ai from "@/components/customMessageForms/Ai";
+import standardMessageForm from "../customMessageForms/standardMessageForm";
+import Ai from "../customMessageForms/ai";
 // import AiCode from "@/components/customMessageForms/AiCode";
 // import AiAssist from "@/components/customMessageForms/AiAssist";
 
@@ -22,6 +22,11 @@ const Chat = () => {
         style={{ height: "100vh" }}
         renderChatHeader={(chat) => <Header chat={chat} />}
         renderMessageForm={(props) => {
+
+          if(chatProps.chat?.title.startsWith("aiChat_")) {
+            return <Ai props={props} activeChat={chatProps.chat} />
+          }
+
           return(
             <standardMessageForm props = {props} activeChat={chatProps.chat} />
           )
