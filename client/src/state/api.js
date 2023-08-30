@@ -5,14 +5,48 @@ export const api = createApi({
     reducerPath: "main",
     tagTypes: [],
     endpoints: (build) => ({
-        postAiText: build.mutation({ //allows us to make a post API call to the backend
+        postAiText: build.mutation({
             query: (payload) => ({
                 url: "openai/text",
                 method: "POST",
                 body: payload,
-            })
-        })
-    })
+            }),
+        }),
+        postAiCode: build.mutation({
+            query: (payload) => ({
+                url: "openai/code",
+                method: "POST",
+                body: payload,
+            }),
+        }),
+        postAiAssist: build.mutation({
+            query: (payload) => ({
+                url: "openai/assist",
+                method: "POST",
+                body: payload,
+            }),
+        }),
+        postLogin: build.mutation({
+            query: (payload) => ({
+                url: "auth/login",
+                method: "POST",
+                body: payload,
+            }),
+        }),
+        postSignUp: build.mutation({
+            query: (payload) => ({
+                url: "auth/signup",
+                method: "POST",
+                body: payload,
+            }),
+        }),
+    }),
 });
 
-export const { usePostAiTextMutation } = api;
+export const {
+    usePostAiTextMutation,
+    usePostAiCodeMutation,
+    usePostAiAssistMutation,
+    usePostLoginMutation,
+    usePostSignUpMutation,
+} = api;

@@ -1,8 +1,6 @@
 import { usePostAiTextMutation } from "@/state/api";
 import React, { useState } from "react";
-import messageFormUI from "./messageFormUI";
-
-import React from 'react'
+import MessageFormUI from "./MessageFormUI";
 
 const Ai = ({ props, activeChat }) => {
     const [message, setMessage] = useState("");
@@ -13,32 +11,32 @@ const Ai = ({ props, activeChat }) => {
 
     const handleSubmit = async () => {
         const date = new Date()
-            .toISOString().replace("T", " ").replace("Z", `${Math.floor(Math.random() * 1000)}+00:00`);
+            .toISOString()
+            .replace("T", " ")
+            .replace("Z", `${Math.floor(Math.random() * 1000)}+00:00`);
         const at = attachment ? [{ blob: attachment, file: attachment.name }] : [];
         const form = {
             attachments: at,
             created: date,
             sender_username: props.username,
             text: message,
-            activeChatId: activeChat.id
+            activeChatId: activeChat.id,
         };
 
         props.onSubmit(form);
         trigger(form);
         setMessage("");
         setAttachment("");
-    }
+    };
 
     return (
-        <div>
-            <messageFormUI
-                setAttachment={setAttachment}
-                message={message}
-                handleChange={handleChange}
-                handleSubmit={handleSubmit}
-            />
-        </div>
-    )
-}
+        <MessageFormUI
+            setAttachment={setAttachment}
+            message={message}
+            handleChange={handleChange}
+            handleSubmit={handleSubmit}
+        />
+    );
+};
 
-export default Ai
+export default Ai;
