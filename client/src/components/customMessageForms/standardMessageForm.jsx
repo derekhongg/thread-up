@@ -17,7 +17,7 @@ const StandardMessageForm = ({ props, activeChat }) => {
             attachments: at,
             created: date,
             sender_username: props.username,
-            text: message,
+            text: `Generate me an Instagram Thread about: ${message}`,
             activeChatId: activeChat.id,
         };
 
